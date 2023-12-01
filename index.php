@@ -22,15 +22,25 @@
                     Login
                 </div>
                 <div class="card-body">
-                    <form>
+
+                    <?php if(isset($_GET["login"]) && $_GET["login"] == "error") { ?>
+                        
+                        <div class='alert alert-danger' role='alert'>
+                            Invalid username or password
+                        </div>
+
+                    <?php } ?>
+
+                    <form action="./utils/validate-login.php" method="POST">
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="E-mail">
+                            <input name="email" type="email" class="form-control" placeholder="E-mail">
                         </div>
                         <div class="form-group mt-3">
-                            <input type="password" class="form-control" placeholder="Password">
+                            <input name="password" type="password" class="form-control" placeholder="Password">
                         </div>
                         <button class="btn btn-md btn-info mt-3" type="submit">Login</button>
                     </form>
+
                 </div>
             </div>
 
