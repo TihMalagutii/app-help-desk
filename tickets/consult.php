@@ -3,6 +3,7 @@
     $index = "../index.php";
     $logo = "../assets/images/logo.png";
     $style = "../assets/styles.css";
+    $logout = "../utils/logout.php";
 
     include_once("../utils/validate-access.php");
     
@@ -50,7 +51,9 @@
 
                         <div class="row mt-5">
                             <div class="col-6">
-                                <button class="btn btn-lg btn-warning btn-block" type="submit">Back</button>
+                                <a href="../home.php" class="btn btn-lg btn-warning btn-block">
+                                    Back
+                                </a>
                             </div>
                         </div>
 

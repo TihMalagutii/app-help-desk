@@ -3,6 +3,7 @@
     $index = "./index.php";
     $logo = "./assets/images/logo.png";
     $style = "./assets/styles.css";
+    $logout = "./utils/logout.php";
 
     include_once("./utils/validate-access.php");
     
@@ -28,10 +29,14 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-6 d-flex justify-content-center">
-                                <img src="./assets/images/form_open_tickets.png" width="70" height="70">
+                                <a href="./tickets/open.php">
+                                    <img src="./assets/images/form_open_tickets.png" width="70" height="70">
+                                </a>
                             </div>
                             <div class="col-6 d-flex justify-content-center">
-                                <img src="./assets/images/form_consult_tickets.png" width="70" height="70">
+                                <a href="./tickets/consult.php">
+                                    <img src="./assets/images/form_consult_tickets.png" width="70" height="70">
+                                </a>
                             </div>
                         </div>
                     </div>
