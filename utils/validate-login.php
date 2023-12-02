@@ -1,5 +1,7 @@
 <?php
 
+    session_start();
+
     $isAuth = false;
 
     $users = [
@@ -23,8 +25,10 @@
     }
 
     if($isAuth) {
+        $_SESSION["isAuth"] = true;
         header("Location: ../home.php");
     } else {
+        $_SESSION["isAuth"] = false;
         header("Location: ../index.php?login=error");
     }
 

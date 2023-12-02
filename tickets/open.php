@@ -1,6 +1,14 @@
 <?php
+
+	session_start();
+
+	if(!isset($_SESSION["isAuth"]) || $_SESSION["isAuth"] != true) {
+		header("Location: ../index.php?auth=error");
+	}
+
     $logo = "../assets/images/logo.png";
     $style = "../assets/styles.css";
+	
 ?>
 
 <!DOCTYPE html>

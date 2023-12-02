@@ -1,6 +1,8 @@
 <?php
+
     $logo = "./assets/images/logo.png";
     $style = "./assets/styles.css";
+    
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +29,14 @@
                         
                         <div class='alert alert-danger' role='alert'>
                             Invalid username or password
+                        </div>
+
+                    <?php } ?>
+
+                    <?php if(isset($_GET["auth"]) && $_GET["auth"] == "error") { ?>
+                        
+                        <div class='alert alert-danger' role='alert'>
+                            Please log in before visiting the page
                         </div>
 
                     <?php } ?>
