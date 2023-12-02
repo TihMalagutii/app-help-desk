@@ -1,13 +1,10 @@
 <?php
 
-    session_start();
-
-    if(!isset($_SESSION["isAuth"]) || $_SESSION["isAuth"] != true) {
-        header("Location: ../index.php?auth=error");
-    }
-    
+    $index = "../index.php";
     $logo = "../assets/images/logo.png";
     $style = "../assets/styles.css";
+
+    include_once("../utils/validate-access.php");
     
 ?>
 
