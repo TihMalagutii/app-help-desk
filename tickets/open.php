@@ -30,15 +30,15 @@
 						<div class="row">
 							<div class="col">
 
-								<form>
+								<form method="POST" action="../utils/create-ticket.php">
 									<div class="form-group">
 										<label>Title</label>
-										<input type="text" class="form-control" placeholder="Title">
+										<input name="title" type="text" class="form-control" placeholder="Title">
 									</div>
 
 									<div class="form-group">
 										<label>Category</label>
-										<select class="form-control">
+										<select name="category" class="form-control">
 											<option>User Creation</option>
 											<option>Printer</option>
 											<option>Hardware</option>
@@ -49,7 +49,7 @@
 
 									<div class="form-group">
 										<label>Description</label>
-										<textarea class="form-control" rows="3"></textarea>
+										<textarea name="description" class="form-control" rows="3"></textarea>
 									</div>
 
 									<div class="row mt-5">
