@@ -6,6 +6,12 @@
     $logout = "../utils/logout.php";
 
     include_once("../utils/validate-access.php");
+
+    $databasePath = "../utils/tickets.db";
+    $pdo = new PDO("sqlite:" . $databasePath);
+    $query = "SELECT * FROM tickets";
+    $statement = $pdo->query($query);
+    $tickets = $statement->fetchAll(PDO::FETCH_ASSOC);
     
 ?>
 
@@ -31,23 +37,18 @@
 
                     <div class="card-body">
 
-                        <div class="card mb-3 bg-light">
-                            <div class="card-body">
-                                <h5 class="card-title">Ticket Title...</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">Category</h6>
-                                <p class="card-text">Ticket Description...</p>
+                        <?php foreach( $tickets as $ticket ){ ?>
 
+                            <div class="card mb-3 bg-light">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?php echo $ticket['title']; ?></h5>
+                                    <h6 class="card-subtitle mb-2 text-muted"><?php echo $ticket['category']; ?></h6>
+                                    <p class="card-text"><?php echo $ticket['description']; ?></p>
+
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="card mb-3 bg-light">
-                            <div class="card-body">
-                                <h5 class="card-title">Ticket Title...</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">Category</h6>
-                                <p class="card-text">Ticket Description...</p>
-
-                            </div>
-                        </div>
+                        <?php } ?>
 
                         <div class="row mt-5">
                             <div class="col-6">
