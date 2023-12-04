@@ -7,11 +7,17 @@
 
     include_once("../utils/validate-access.php");
 
-    $databasePath = "../utils/tickets.db";
-    $pdo = new PDO("sqlite:" . $databasePath);
-    $query = "SELECT * FROM tickets";
-    $statement = $pdo->query($query);
-    $tickets = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $tickets = [];
+
+    try {
+        $databasePath = "../utils/tickets.db";
+        $pdo = new PDO("sqlite:" . $databasePath);
+        $query = "SELECT * FROM tickets";
+        $statement = $pdo->query($query);
+        $tickets = $statement->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        
+    }
     
 ?>
 
@@ -36,15 +42,22 @@
                     </div>
 
                     <div class="card-body">
-
-                        <?php foreach( $tickets as $ticket ){ ?>
+                        
+                        <?php if(!empty($tickets)) { foreach( $tickets as $ticket ){ ?>
 
                             <div class="card mb-3 bg-light">
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $ticket['title']; ?></h5>
                                     <h6 class="card-subtitle mb-2 text-muted"><?php echo $ticket['category']; ?></h6>
                                     <p class="card-text"><?php echo $ticket['description']; ?></p>
+                                </div>
+                            </div>
 
+                        <?php } } else { ?>
+
+                            <div class="card mb-3 bg-light">
+                                <div class="card-body">
+                                    <h2 class="card-text">0 Tickets</h2>
                                 </div>
                             </div>
 
